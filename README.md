@@ -47,7 +47,7 @@ Invoke your Overlay:
 	
 Result:
 
-![No image](http://prntscr.com/8p0e5k)
+![No image](http://i.imgur.com/DGUgBcu.png)
 
 
 Hide your Overlay:
