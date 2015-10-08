@@ -15,6 +15,7 @@ and open the template in the editor.
     </head>
     <body>
         <div data-overlay="overlay">
+            <!-- Animated cube -->
             <div class="cssload-container">
                 <div class="cssload-cube">
                     <div class="cssload-half1">
@@ -29,12 +30,13 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-            Processing your request
+            <!-- / Animated cube -->
+            <span data-overlay-msg></span>
             <br>
             <br>
             <button class="btn btn-danger" data-overlay-btn>Cancel</button>
         </div>
-        <input type="button" onclick="Overlay.show('overlay')" value="Show">
+        <input type="button" onclick="Overlay.show('overlay', 'Processing your request')" value="Show">
 
         <script src="3rd/bootstrap/js/bootstrap.min.js"></script>
         <script src="dist/Overlay.js"></script>

@@ -17,15 +17,20 @@ var Overlay = {
      * Show an overlay
      * 
      * @param {int} _id Target "data-overlay" ID 
-     * @param {XMLHttpRequest} [optional] XMLHttpRequest object to be stored
+     * @param {string} _message [optional] The message to be shown
+     * @param {XMLHttpRequest} _xhr [optional] XMLHttpRequest object to be stored
      */
-    show: function(_id, xhr) 
+    show: function(_id, _message, _xhr) 
     {
         overlayElm = '[data-overlay="' + _id.trim('_') + '"]';
         var cancelBtn = overlayElm + ' ' + 'button[data-overlay-btn]';
+        var messageLbl = overlayElm + ' ' + 'span[data-overlay-msg]';
         
         $(overlayElm).fadeIn(500);
-        $(overlayElm).data('xhr', xhr || null);
+        $(overlayElm).data('xhr', _xhr || null);
+        
+        
+        // Show CANCEL button if there's XHR object
         
         if ($(overlayElm).data('xhr'))
         {
@@ -33,6 +38,11 @@ var Overlay = {
                 Overlay.hide(_id);
             });
         }
+        
+        
+        // Show message, if there is, otherwise use default
+        
+        $(messageLbl).text(_message || "Processing your request");
     },
     
     /**
