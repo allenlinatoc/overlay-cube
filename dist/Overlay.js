@@ -75,8 +75,6 @@ var Overlay = {
         
         $(overlayElm).fadeOut(300);
         
-        Overlay.xhr = null;
-        
         // If XHR should be aborted
         
         if (_abort_xhr === true && Overlay.xhr && Overlay.xhr.readystate != 4)
@@ -89,6 +87,7 @@ var Overlay = {
         
         $(cancelBtn).off('click').hide();
         
+        Overlay.xhr = null;
         Overlay.visible = false;
     }
     
