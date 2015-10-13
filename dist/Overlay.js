@@ -10,6 +10,10 @@
  */
 
 var Overlay = {
+    
+    current_id: null,
+    
+    visible: false,
    
     xhr: null,
     
@@ -22,12 +26,21 @@ var Overlay = {
      */
     show: function(_id, _message, _xhr) 
     {
+        if (_id == undefined)
+            throw "Required parameter '_id' not specified.";
+        
+        if (!Overlay.visible)
+            Overlay.visible = true;
+        
+        Overlay.current_id = _id;
+        
         overlayElm = '[data-overlay="' + _id.trim('_') + '"]';
         var cancelBtn = overlayElm + ' ' + 'button[data-overlay-btn]';
         var messageLbl = overlayElm + ' ' + 'span[data-overlay-msg]';
         
         $(overlayElm).fadeIn(500);
         $(overlayElm).data('xhr', _xhr || null);
+        Overlay.xhr = $(overlayElm).data('xhr');
         
         
         // Show CANCEL button if there's XHR object
@@ -53,13 +66,16 @@ var Overlay = {
      */
     hide: function(_id, _abort_xhr)
     {
+        if (!Overlay.visible)
+            return;
+        
         overlayElm = '[data-overlay="' + _id.trim('_') + '"]';
         _abort_xhr =  _abort_xhr || true;
         var cancelBtn = overlayElm + ' ' + 'button[data-overlay-btn]';
         
         $(overlayElm).fadeOut(300);
         
-        Overlay.xhr = $(overlayElm).data('xhr') || null;
+        Overlay.xhr = null;
         
         // If XHR should be aborted
         
@@ -72,15 +88,26 @@ var Overlay = {
         // Reset event handler
         
         $(cancelBtn).off('click').hide();
+        
+        Overlay.visible = false;
     }
     
 };
 
-$(document).ready(function() {
+$(document)
+
+        .ready(function() {
     
-    // Initially hide all overlay controls
-    
-    $('[data-overlay]').hide();
-    $('button[data-overlay-btn]').hide();
-    
-});
+            // Initially hide all overlay controls
+
+            $('[data-overlay]').hide();
+            $('button[data-overlay-btn]').hide();
+
+        })
+        
+        .keyup(function(e) {
+            
+            if (Overlay.visible && e.keyCode == 27 && Overlay.xhr)
+                Overlay.hide('overlay');
+            
+        });

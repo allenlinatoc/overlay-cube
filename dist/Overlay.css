@@ -6,15 +6,11 @@ and open the template in the editor.
 /* 
     Created on : Oct 7, 2015, 10:26:12 PM
     Author     : alinatoc
-
-    Requires
-
-    - Bootstrap
 */
 
 [data-overlay] {
 
-    background-color: #333;
+    background: #333;
     color: #fff;
     font-family: sans-serif;
     opacity: 0.8;
@@ -28,6 +24,117 @@ and open the template in the editor.
 
 }
 
+
+[data-overlay-btn] {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+[data-overlay-btn]:focus,
+[data-overlay-btn].focus {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #761c19;
+}
+[data-overlay-btn]:hover {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+[data-overlay-btn]:active,
+[data-overlay-btn].active,
+.open > .dropdown-toggle[data-overlay-btn] {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+[data-overlay-btn]:active:hover,
+[data-overlay-btn].active:hover,
+.open > .dropdown-toggle[data-overlay-btn]:hover,
+[data-overlay-btn]:active:focus,
+[data-overlay-btn].active:focus,
+.open > .dropdown-toggle[data-overlay-btn]:focus,
+[data-overlay-btn]:active.focus,
+[data-overlay-btn].active.focus,
+.open > .dropdown-toggle[data-overlay-btn].focus {
+  color: #fff;
+  background-color: #ac2925;
+  border-color: #761c19;
+}
+[data-overlay-btn]:active,
+[data-overlay-btn].active,
+.open > .dropdown-toggle[data-overlay-btn] {
+  background-image: none;
+}
+[data-overlay-btn].disabled,
+[data-overlay-btn][disabled],
+fieldset[disabled] [data-overlay-btn],
+[data-overlay-btn].disabled:hover,
+[data-overlay-btn][disabled]:hover,
+fieldset[disabled] [data-overlay-btn]:hover,
+[data-overlay-btn].disabled:focus,
+[data-overlay-btn][disabled]:focus,
+fieldset[disabled] [data-overlay-btn]:focus,
+[data-overlay-btn].disabled.focus,
+[data-overlay-btn][disabled].focus,
+fieldset[disabled] [data-overlay-btn].focus,
+[data-overlay-btn].disabled:active,
+[data-overlay-btn][disabled]:active,
+fieldset[disabled] [data-overlay-btn]:active,
+[data-overlay-btn].disabled.active,
+[data-overlay-btn][disabled].active,
+fieldset[disabled] [data-overlay-btn].active {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+[data-overlay-btn] {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+[data-overlay-btn]:focus,
+[data-overlay-btn]:active:focus,
+[data-overlay-btn].active:focus,
+[data-overlay-btn].focus,
+[data-overlay-btn]:active.focus,
+[data-overlay-btn].active.focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+[data-overlay-btn]:active,
+[data-overlay-btn].active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+[data-overlay-btn].disabled,
+[data-overlay-btn][disabled],
+fieldset[disabled] [data-overlay-btn] {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  opacity: .65;
+}
 
 
 /**
